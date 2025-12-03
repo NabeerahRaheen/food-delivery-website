@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Delivery | Contact</title>
+    <link rel="stylesheet" href="contact-style.css">
+</head>
+<body>
+
+<header>
+    <h1>Food Delivery</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="checkout.html">Checkout</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="contact">
+    <h2>Contact & Payment</h2>
+
+    <div class="restaurant-info">
+        <p><strong>Address:</strong>  nraheen's restaurant, Islamabad</p>
+        <p><strong>Phone:</strong> 0333...2424</p>
+        <p><strong>Email:</strong> nraheen@fooddelivery.com</p>
+    </div>
+
+    <div id="paid-info"></div>
+
+    <form id="contact-form">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <input type="text" id="phone" placeholder="Your Phone Number" required>
+        <textarea id="message" placeholder="Your Message / Delivery Instructions" required></textarea>
+
+
+        <label for="payment">Payment Method:</label>
+        <select id="payment" required>
+            <option value="">Select Payment Method</option>
+            <option value="Cash">Cash</option>
+            <option value="Credit Card">Credit Card</option>
+        </select>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+<script>
+
+    window.addEventListener('load', function() {
+        const amount = localStorage.getItem('paidAmount') || 0;
+        document.getElementById('paid-info').innerText = "Total Paid: $" + amount;
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+        e.preventDefault(); 
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+        const paymentMethod = document.getElementById('payment').value;
+        const totalPaid = localStorage.getItem('paidAmount') || 0;
+
+        if(paymentMethod === "") {
+            alert("Please select a payment method.");
+            return;
+        }
+
+       
+        let submissions = JSON.parse(localStorage.getItem('submissions')) || [];
+
+        
+        submissions.push({
+            name,
+            email,
+            phone,
+            message,
+            paymentMethod,
+            totalPaid
+        });
+
+       
+        localStorage.setItem('submissions', JSON.stringify(submissions));
+
+        
+        alert(`Thank you ${name}! Your order of $${totalPaid} via ${paymentMethod} has been submitted.`);
+
+       
+        document.getElementById('contact-form').reset();
+        localStorage.removeItem('paidAmount');
+    });
+</script>
+
+</body>
+</html>

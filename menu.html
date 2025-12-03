@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Delivery | Menu</title>
+    <link rel="stylesheet" href="menu-style.css">
+</head>
+<body>
+
+   
+    <header>
+        <h1>Food Delivery</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="checkout.html">Checkout</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+ 
+    <section class="menu">
+        <h2>Our Menu</h2>
+
+        <div class="menu-item">
+            <img src="pizza.jpg" alt="Pizza">
+            <h3>Margherita Pizza</h3>
+            <p>$10</p>
+            <button onclick="addToCart('Margherita Pizza', 10)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="burger.jpg" alt="Burger">
+            <h3>Cheese Burger</h3>
+            <p>$8</p>
+            <button onclick="addToCart('Cheese Burger', 8)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="sandwich.jpg" alt="Sandwich">
+            <h3>Club Sandwich</h3>
+            <p>$7</p>
+            <button onclick="addToCart('Club Sandwich', 7)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="pasta.jpg" alt="Pasta">
+            <h3>Spaghetti Pasta</h3>
+            <p>$12</p>
+            <button onclick="addToCart('Spaghetti Pasta', 12)">Add to Cart</button>
+        </div>
+
+        <div class="menu-item">
+            <img src="salad.jpg" alt="Salad">
+            <h3>Caesar Salad</h3>
+            <p>$6</p>
+            <button onclick="addToCart('Caesar Salad', 6)">Add to Cart</button>
+        </div>
+
+    </section>
+
+    <script>
+        
+        function addToCart(name, price) {
+           
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+          
+            cart.push({name: name, price: price});
+
+          
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+         
+            alert(name + " has been added to your cart!");
+        }
+    </script>
+
+</body>
+</html>
+

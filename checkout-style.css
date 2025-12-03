@@ -1,0 +1,115 @@
+*/
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('checkoutimg.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+header {
+    padding: 20px;
+    background-color: rgba(51, 51, 51, 0.85);
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    margin-bottom: 10px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+
+.checkout {
+    max-width: 600px;
+    margin: 40px auto;
+    background-color: rgba(51, 51, 51, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    text-align: center;
+    color: white;
+}
+
+.checkout h2 {
+    margin-bottom: 20px;
+}
+
+#cart-items p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    color: white;
+}
+
+#total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: white;
+}
+
+
+.checkout-buttons {
+    display: flex;
+    justify-content: space-between; 
+    margin-top: 20px;
+}
+
+#clear-cart {
+    padding: 12px 25px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#clear-cart:hover {
+    background-color: #e60000;
+}
+
+#pay-bill {
+    padding: 12px 25px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#pay-bill:hover {
+    background-color: #45a049;
+}
+
+
+@media (max-width: 600px) {
+    .checkout {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .checkout-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #clear-cart, #pay-bill {
+        width: 100%;
+    }
+}
